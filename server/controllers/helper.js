@@ -7,5 +7,5 @@ exports.getAnimeData = (req, res) => {
 };
 
 exports.getAnimeGiphy = (req, res) => {
-  fetch(`http://api.giphy.com/v1/gifs/search?q=anime&api_key=${apiKey}&limit=10`).then((result) => result.json()).then((result) => res.json(result)).catch(console.log);
+  fetch(`http://api.giphy.com/v1/gifs/search?q=anime-shonen&api_key=${apiKey}&limit=10`).then((result) => result.json()).then((result) => res.json(result)).catch(console.log);
 };
