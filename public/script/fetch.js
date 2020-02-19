@@ -1,3 +1,4 @@
+const fetchAnimeGiphy = () => fetch('/anime-giphy');
 const fetchAnimeData = (node) => fetch('/anime', {
   method: 'POST',
   headers: {
