@@ -1,10 +1,38 @@
 const animeToSearch = document.getElementById('search');
 const animesWrapper = document.getElementById('animes');
+const searchButton = document.querySelector('#btn');
+const sliderContainer = document.querySelector('.slider__Conatiner');
+
+// Dom the Anime API
+searchButton.addEventListener('click', () => {
+  fetchAnimeData(animeToSearch).then((res) => res.json()).then((result) => {
+    deleteNodeChilds(sliderContainer);
+    if (animesWrapper) deleteNodeChilds(animesWrapper);
+    for (let i = 0; i < result.data.length; i++) {
+      const slide = document.createElement('div');
+      slide.setAttribute('class', 'mySlides fade');
+      const slideImage = document.createElement('img');
+      slideImage.src = `${result.data[i].attributes.posterImage.large}`;
+      slideImage.alt = `${result.data[i].attributes.titles.en}`;
+      const slideTitle = document.createElement('div');
+      result.data[i].attributes.titles.en === 'undefined' ? slideTitle.textContent = `${result.data[i].attributes.slug}` : slideTitle.textContent = `${result.data[i].attributes.titles.en}`;
+      slideTitle.className = 'text';
+      slide.appendChild(slideImage);
+      slide.appendChild(slideTitle);
+      sliderContainer.appendChild(slide);
+    }
+    showSlides(slideIndex);
+  });
+});
+
+// Dom the Giphy API
+
 const addImg = (src, parent, size) => {
   const img = document.createElement('img');
   img.src = src;
   img.style.width = size;
   img.style.height = size;
+  img.alt = 'anime gif';
   parent.appendChild(img);
 };
 const deleteNodeChilds = (node) => {
@@ -37,7 +65,6 @@ const next = document.querySelector('.next');
 const showSlides = (n) => {
   let i;
   const slides = document.querySelectorAll('.mySlides');
-  const dots = document.querySelectorAll('.dot');
   if (n > slides.length) {
     slideIndex = 1;
   }
@@ -46,13 +73,10 @@ const showSlides = (n) => {
   }
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
-    dots[i].className = dots[i].className.replace(' active', '');
   }
 
   slides[slideIndex - 1].style.display = 'block';
-  dots[slideIndex - 1].className += ' active';
 };
-showSlides(slideIndex);
 
 
 const plusSlides = (n) => {
