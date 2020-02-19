@@ -3,6 +3,7 @@ const path = require('path');
 const favicon = require('serve-favicon');
 const routes = require('./routers');
 const controllers = require('./controllers');
+require('dotenv').config();
 
 const app = express();
 

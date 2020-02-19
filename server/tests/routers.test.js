@@ -13,7 +13,7 @@ test('Expecting status code 200 when /', (done) => {
     });
 });
 
-test('Testing endpoint facster', (done) => {
+test('Testing endpoint /anime-giphy', (done) => {
   request(app)
     .get('/anime-giphy')
     .expect(200)
@@ -24,7 +24,7 @@ test('Testing endpoint facster', (done) => {
     });
 });
 
-test('Should return an object', (done) => {
+test('Should match "attack on titans"', (done) => {
   request(app)
     .post('/anime')
     .set({
