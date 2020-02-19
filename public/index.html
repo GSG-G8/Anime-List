@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Anime List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <header id="header">
+      <h1>My Anime List</h1>
+    </header>
+    <section>
+      <h2>
+        Welcome to MyAnimeList, the world's most active online anime social
+        networking! we provide you with a lot of informations about whatever
+        anime you search for.
+      </h2>
+      <div>
+        <label for="search">what anime are you interested in </label>
+        <input type="text" id="search" placeholder="Search Anime"/>
+        <buttn id="btn"><i class="fa fa-search" aria-hidden="true"></i></buttn>
+      </div>
+      <div id="animes"></div>
+    </section>
+    <script src="./script/logic.js"></script>
+    <script src="./script/fetch.js"></script>
+    <script src="./script/dom.js"></script>
+  </body>
+</html>
