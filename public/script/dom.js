@@ -7,20 +7,19 @@ const sliderContainer = document.querySelector('.slider__Conatiner');
 searchButton.addEventListener('click', () => {
   fetchAnimeData(animeToSearch).then((res) => res.json()).then((result) => {
     deleteNodeChilds(sliderContainer);
-    if (animesWrapper) deleteNodeChilds(animesWrapper);
-    for (let i = 0; i < result.data.length; i++) {
+    result.data.forEach((element) => {
       const slide = document.createElement('div');
       slide.setAttribute('class', 'mySlides fade');
       const slideImage = document.createElement('img');
-      slideImage.src = `${result.data[i].attributes.posterImage.large}`;
-      slideImage.alt = `${result.data[i].attributes.titles.en}`;
+      slideImage.src = `${element.attributes.posterImage.large}`;
+      slideImage.alt = `${element.attributes.titles.en}`;
       const slideTitle = document.createElement('div');
-      result.data[i].attributes.titles.en === 'undefined' ? slideTitle.textContent = `${result.data[i].attributes.slug}` : slideTitle.textContent = `${result.data[i].attributes.titles.en}`;
+      element.attributes.titles.en === 'undefined' ? slideTitle.textContent = `${element.attributes.slug}` : slideTitle.textContent = `${element.attributes.titles.en}`;
       slideTitle.className = 'text';
       slide.appendChild(slideImage);
       slide.appendChild(slideTitle);
       sliderContainer.appendChild(slide);
-    }
+    });
     showSlides(slideIndex);
   });
 });
