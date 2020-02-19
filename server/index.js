@@ -1,9 +1,9 @@
 const app = require('./app');
 require('dotenv').config();
 
-const port = process.env.PORT || 5555;
+app.set('port', process.env.PORT || 5555);
 
-app.listen(port, () => {
+app.listen(app.get('port'), () => {
   // eslint-disable-next-line no-console
-  console.log(`Visit our server at http://localhost:${port}`);
+  console.log(`Visit our server at http://localhost:${app.get('port')}`);
 });
