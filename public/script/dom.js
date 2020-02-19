@@ -1,5 +1,5 @@
 const animeToSearch = document.getElementById('search');
-const section = document.getElementById('animes');
+const animesWrapper = document.getElementById('animes');
 const addImg = (src, parent, size) => {
   const img = document.createElement('img');
   img.src = src;
@@ -14,10 +14,14 @@ const deleteNodeChilds = (node) => {
 fetchAnimeGiphy().then((response) => response.json())
   .then((animesGiphy) => {
     if (animesGiphy.data.length === 0) {
-      throw new TypeError('No Result');
+      throw new TypeError('no anime giphy available, come again later');
     }
     animesGiphy.data.forEach((element) => {
-      addImg(element.images.original.url, section, '200px');
+      addImg(element.images.original.url, animesWrapper, '200px');
     });
   })
-  .catch((error) => console.log(error));
+  .catch((error) => {
+    const errorContainer = document.createElement('div');
+    errorContainer.textContent = error.message;
+    animesWrapper.appendChild(errorContainer);
+  });
