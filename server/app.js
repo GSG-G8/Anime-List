@@ -8,9 +8,9 @@ const app = express();
 
 app.disable('x-powered-by');
 app.use(favicon(path.join(__dirname, '..', 'public', 'images', 'favicon.ico')));
-// app.use(express.json());
-app.use(routes);
+app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(routes);
 app.use(controllers.error.clientError);
 app.use(controllers.error.serverError);
 
