@@ -40,6 +40,7 @@
 .header__searchbar__btn{
     padding: 0.5rem;
     margin-right: 0.25rem;
+    cursor: pointer;
 }
 .header__searchbar__btn__icon{
     color: blue;
