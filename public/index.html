@@ -13,23 +13,37 @@
   </head>
   <body>
     <main class="wrapper">
-    <header class='header' id="header">
-      <h1 class="header__h1">My Anime List</h1>
-      <div class="header__searchbar">
-        <label for="search" class="header__searchbar__label">what anime are you interested in </label>
-        <input type="text" id="search" placeholder="Search Anime" class="header__searchbar__input"/>
-        <buttn id="btn" class="header__searchbar__btn"><i class="fa fa-search header__searchbar__btn__icon" aria-hidden="true"></i></buttn>
-      </div>
-    </header>
-    <section class="content">
-      <h2 class="content__heading">
-        Welcome to MyAnimeList, the world's most active online anime social
-        networking! we provide you with a lot of informations about whatever
-        anime you search for.
-      </h2>
-      <div id="animes" class="content__giphy"></div>
-    </section>
-  </main>
+      <header class="header" id="header">
+        <h1 class="header__h1">My Anime List</h1>
+        <div class="header__searchbar">
+          <label for="search" class="header__searchbar__label"
+            >what anime are you interested in
+          </label>
+          <input
+            type="text"
+            id="search"
+            placeholder="Search Anime"
+            class="header__searchbar__input"
+            autocomplete="off"
+            required
+          />
+          <buttn id="btn" class="header__searchbar__btn"
+            ><i
+              class="fa fa-search header__searchbar__btn__icon"
+              aria-hidden="true"
+            ></i
+          ></buttn>
+        </div>
+      </header>
+      <section class="content">
+        <h2 class="content__heading">
+          Welcome to MyAnimeList, the world's most active online anime social
+          networking! we.header__searchbar{ provide you with a lot of
+          informations about whatever anime you search for.
+        </h2>
+        <div id="animes" class="content__giphy"></div>
+      </section>
+    </main>
     <script src="./script/logic.js"></script>
     <script src="./script/fetch.js"></script>
     <script src="./script/dom.js"></script>
